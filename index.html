@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlingifyPlug Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <h1 class="app-title">PlingifyPlug Hub</h1>
+</header>
+
+<div class="app-container">
+  <!-- Sidebar Menu -->
+  <nav class="sidebar">
+    <ul>
+      <li class="menu-item active" data-tab="home">Home</li>
+      <li class="menu-item" data-tab="vinti">Vinti</li>
+      <li class="menu-item" data-tab="instonomo-ai">Instonomo AI</li>
+      <li class="menu-item" data-tab="instonomo-chatbot">Instonomo Chatbot</li>
+    </ul>
+  </nav>
+
+
+  
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Home Tab: keep original cards layout -->
+    <div class="tab-content home-layout" id="home">
+      <div class="card clean-glass">
+        <img src="VintiLogo.png" alt="Image Description" class="card-image">
+        <button id="vinti-button" class="modern-button">Checking Vinti…</button>
+      </div>
+
+      <div class="card clean-glass">
+        <img src="InstonomoAILogo.png" alt="Image Description" class="card-image">
+        <button id="instonomo-button" class="modern-button">Open Instonomo AI</button>
+      </div>
+
+      <div class="card clean-glass">
+        <img src="InstonomoChatbotLogo.png" alt="Image Description" class="card-image">
+        <button id="chatbot-button" class="modern-button">Open Instonomo Chatbot</button>
+      </div>
+    </div>
+
+    <!-- Vinti Tab: vertical layout -->
+    <div class="tab-content tab-layout" id="vinti">
+      <div class="card-tab clean-glass-tab">
+        <img src="VintiLogo.png" alt="Vinti Logo" class="card-image-large">
+        <p>Introducing Vinti, a fast, modern, and secure web browser that prioritizes your online safety with integrated  PlingifyPlug AntiMalware. Effortlessly browse YouTube, shop online, and explore the web. Vinti is available for both Windows and MacOS platforms. </p>
+        <button id="vinti-button-tab" class="modern-button">Checking Vinti…</button>
+        <button id="vinti-setup-button" class="modern-button" style="margin-top:15px; margin-bottom: 5%;">Install Vinti 2.4.000.10A</button>
+      </div> 
+    </div>
+
+    <!-- Instonomo AI Tab -->
+    <div class="tab-content tab-layout" id="instonomo-ai">
+      <div class="card-tab clean-glass-tab">
+        <img src="InstonomoAILogo.png" alt="Instonomo AI" class="card-image-large">
+        <p>Instonomo is an intelligent assistant developed by PlingifyPlug to streamline daily tasks. Initially launched as Instonomo ChatBot, it has evolved into a more advanced AI system. While the AI version is currently under development, the chatbot version remains operational and continues to assist users with various tasks.</p>
+        <button id="instonomo-button-tab" class="modern-button" style="margin-bottom: 5%;">Open Instonomo AI</button>
+      </div>
+    </div>
+
+    <!-- Instonomo Chatbot Tab -->
+    <div class="tab-content tab-layout" id="instonomo-chatbot">
+      <div class="card-tab clean-glass-tab">
+        <img src="InstonomoChatbotLogo.png" alt="Instonomo Chatbot" class="card-image-large">
+        <p>Instonomo ChatBot is a user-friendly AI assistant accessible via a web interface. Users can interact with it by typing or speaking their queries. The chatbot is designed to provide assistance with a range of tasks, offering a convenient and efficient way to get help online.</p>
+        <button id="chatbot-button-tab" class="modern-button" style="margin-bottom: 5%;">Open Instonomo Chatbot</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <p>© 2025 PlingifyPlug. All rights reserved. | <a href="https://plingifyplug.com/">PlingifyPlug</a> | <a href="https://plingifyplug.com/contact-us">Support</a> | <a href="https://plingifyplug.com/privacy">Privacy Policy</a> | <a href="https://backuppass.github.io/Product-Centre/">Product-Centre</a></p>
+</footer>
+
+
+<script>
+
+  document.getElementById('vinti-setup-button').onclick = () => window.electronAPI.openPath(`Vinti_Setup_2.4.000.10A.exe`);
+
+  // Sidebar tab switching
+  const menuItems = document.querySelectorAll('.menu-item');
+  const tabs = document.querySelectorAll('.tab-content');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      menuItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      const target = item.dataset.tab;
+      tabs.forEach(tab => tab.style.display = (tab.id === target) ? 'flex' : 'none');
+    });
+  });
+
+  // Default tab
+  tabs.forEach(tab => tab.style.display = (tab.id === 'home') ? 'flex' : 'none');
+</script>
+<script src="renderer.js"></script>
+</body>
+</html>

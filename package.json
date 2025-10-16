@@ -1,0 +1,45 @@
+{
+  "name": "plingifyplughub",
+  "version": "0.0.20",
+  "description": "PlingifyPlug Hub - Centralized application for managing PlingifyPlug products.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "publish": "electron-builder --win --x64 --publish=always"
+  },
+  "author": "PlingifyPlug",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
+  },
+  "build": {
+    "appId": "com.plingifyplug.hub",
+    "productName": "PlingifyPlug Hub",
+    "files": ["**/*"],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/PlingifyPlugLogo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PlingifyPlug Hub"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://your-public-host.com/PlingifyPlugHub/"
+      }
+    ]
+  }
+}
