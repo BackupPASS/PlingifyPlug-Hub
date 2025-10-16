@@ -1,6 +1,6 @@
 {
   "name": "plingifyplughub",
-  "version": "0.0.20",
+  "version": "0.0.30",
   "description": "PlingifyPlug Hub - Centralized application for managing PlingifyPlug products.",
   "main": "main.js",
   "scripts": {
@@ -37,8 +37,9 @@
     },
     "publish": [
       {
-        "provider": "generic",
-        "url": "https://your-public-host.com/PlingifyPlugHub/"
+        "provider": "github",
+        "owner": "BackupPASS",
+        "repo": "PlingifyPlug-Hub"
       }
     ]
   }
